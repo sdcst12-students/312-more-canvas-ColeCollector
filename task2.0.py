@@ -2,9 +2,18 @@ import tkinter as tk
 import random
 
 """
-Task 1
-Read the map1.txt file and convert to a map that you can navigate a
-rectangle object through.
+Task 2
+Read the map2.txt file and convert to a map that you can navigate a
+rectangle object through. Use images for your map.
+You will want to make sure that your rectangle is above the map tiles
+Legend:
+0 Water
+1 Plains
+2 Forest
+3 Hills
+4 Mountains
+5 Swamp
+6 City
 """
 w = tk.Tk()
 w.geometry("925x475")
@@ -15,7 +24,7 @@ c.pack()
 rec = c.create_rectangle(5,35,25,55,fill="#aa0000")
 walls = []
 
-f = open('map2.txt','r')
+f = open('map1.txt','r')
 
 
 x=0
@@ -30,9 +39,12 @@ while True:
 
 for i in range(len(Walls)):
     for j in range(len(Walls[i])):
-        if Walls[i][j] == "*":
-            obstacle = c.create_rectangle(30*j,30*i,(30*j)+30,(30*i)+30,fill='#000000')
-            walls.append(c.bbox(obstacle))
+        if Walls[i][j] == "0":
+        elif Walls[i][j] == "1":
+        elif Walls[i][j] == "2":
+        elif Walls[i][j] == "3":
+        elif Walls[i][j] == "4":
+        elif Walls[i][j] == "5":
 
 
 
