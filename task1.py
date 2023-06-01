@@ -15,7 +15,7 @@ c.pack()
 rec = c.create_rectangle(5,35,25,55,fill="#aa0000")
 walls = []
 
-f = open('map2.txt','r')
+f = open('map1.txt','r')
 
 
 x=0
