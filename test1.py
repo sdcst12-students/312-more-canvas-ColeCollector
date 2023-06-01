@@ -28,17 +28,37 @@ import time
 w = tk.Tk()
 w.attributes("-topmost",True)
 w.geometry("500x250")
+tile = 0
+
 
 c = tk.Canvas(w,width=475,height=280)
 c.pack()
-img = Image.open("assets/spritesheet.png")
-img2 = img.crop([0,0,64,64])
+img = Image.open("assets/spritesheet.png").convert("RGBA")
+img1 = ImageTk.PhotoImage( img.crop([0,0,64,64]))
+img2 = ImageTk.PhotoImage( img.crop([64,0,128,64]))
+img3 = ImageTk.PhotoImage( img.crop([192,0,256,64]))
 
-rec = c.create_image(0,0,image=img2)
+rec = c.create_image(64,64,image=img3)
+
+def update():
+    global tile 
+    ig = None
+    tile = tile + 1
+    tile = tile%3
+    if tile == 0: 
+        ig = img1
+    elif tile == 1:
+        ig = img2
+    elif tile == 2:
+        ig = img3
 
 
+    c.itemconfig(rec,image=ig)
+    print(tile)
+    w.after(200,update)
 
-#w.after(200,update)
+
+w.after(200,update)
 
 
 w.mainloop()
